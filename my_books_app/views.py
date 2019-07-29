@@ -13,6 +13,6 @@ def all(request):
 
 
 def show(request, id): #Passing in the ID in the URL address.
-    book = Book.objects.get(pk=id)
-    context = {'book': book}
+    our_book = Book.objects.get(pk=id)
+    context = {'our_book': our_book}
     return render(request, 'show.html', context)

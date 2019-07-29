@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 255, 0, .1);
+    color: green;
+}
+
+a {
+    color: rgb(56, 110, 1);
+}
+
+header, footer {
+    color: #FFF;
+    background-color: #000;
+    height: 100px;
+    font-size: 40px;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+

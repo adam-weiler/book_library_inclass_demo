@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Books</title>
-</head>
-<body>
-    <h1>{{ book }}</h1>
-    <!-- <h1>A List of Books:</h1>
-    <ul>
-    {% for book in our_books %}
-        <li><a href="/books/{{ book.pk }}" >{{ book.title }} by {{ book.author }} : {{ book.summary }} -- {{ book.id }} {{ book.pk }}</a></li>
+{% extends 'base.html' %}
 
-    {% endfor %}
-    </ul> -->
-    
-</body>
-</html>
+{% block title %}
+    {{ our_book.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ our_book.title }} by {{ our_book.author }}</h1>
+    <p>{{ our_book.summary }}</p>    
+{% endblock %}
