@@ -44,20 +44,15 @@ def create(request): #This function is new. AM
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/books')
+        #The data has been submitted.
+        #We could send them to thank you page.
+        #Or send back to a list of books
     else:
-
         # breakpoint()
         context = {"form": form, "message":"Creating a new Book", "action":"/books/create"}
 
         return render(request, 'form.html', context)
-
-
-    form.save()
-
-    return HttpResponseRedirect('/books')
-    #The data has been submitted.
-    #We could send them to thank you page.
-    #Or send back to a list of books
+        #There was an error. Returns to the form.html page with error.
 
 
 def edit(request, id): #This function is new. AM
@@ -87,12 +82,19 @@ def update(request, id): #This method is new. AM
 
     #New way
     form = BookForm(request.POST, instance=our_book)
-    form.save()
 
-    return HttpResponseRedirect('/books')
-    #The data has been updated.
-    #We could send them to thank you page.
-    #Or send back to a list of books
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/books')
+        #The data has been submitted.
+        #We could send them to thank you page.
+        #Or send back to a list of books
+    else:
+        # breakpoint()
+        context = {"our_book": our_book, "form": form, "message":"Editing an existing Book", "action":f"/books/{our_book.pk}/update" }
+
+        return render(request, 'form.html', context)
+        #There was an error. Returns to the form.html page with error.
 
 
 def delete(request, id): #This method is new. AM

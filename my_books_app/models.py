@@ -23,8 +23,9 @@ class Book(models.Model): #Gives us special functionality to talk to the ORM.
     summary = models.TextField(null=True)
     # number_of_pages = models.IntegerField()
     # website = URLField()
-    website = models.TextField(validators=[URLValidator()])
+    website = models.TextField(validators=[URLValidator()], null=True) #Our method
     pages = models.IntegerField(validators=[MinValueValidator(10)], null=True)
+    website_alternative_way = models.URLField(max_length=250, null=True) #Eric's method
     
 
     def __str__(self):
@@ -33,4 +34,4 @@ class Book(models.Model): #Gives us special functionality to talk to the ORM.
 class BookForm(ModelForm): #This method is new. PM
     class Meta:
         model = Book #We want it tied to the model Book.
-        fields = ['title', 'author', 'summary', 'website', 'pages']
+        fields = ['title', 'author', 'summary', 'website', 'pages', 'website_alternative_way']
