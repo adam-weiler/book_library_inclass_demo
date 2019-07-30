@@ -40,6 +40,18 @@ def create(request): #This function is new. AM
 
     #New Way:
     form = BookForm(request.POST) #This part is new. PM.
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/books')
+    else:
+
+        # breakpoint()
+        context = {"form": form, "message":"Creating a new Book", "action":"/books/create"}
+
+        return render(request, 'form.html', context)
+
+
     form.save()
 
     return HttpResponseRedirect('/books')
@@ -91,3 +103,14 @@ def delete(request, id): #This method is new. AM
     #The data has been updated.
     #We could send them to thank you page.
     #Or send back to a list of books
+
+
+#form.save() triggered
+#typing:
+
+#form   #Returns <BookForm bound=true, valid=Unknown, fields={title;author;summary;website)}
+
+#form.is_valid()    #Returns False
+
+#form.errors      #Returns {'website': ['Enter a valid URL.']}
+
