@@ -10,7 +10,7 @@ from django.forms import ModelForm #This line is new. PM
 
 # from django.forms import URLField
 
-from django.core.validators import URLValidator
+from django.core.validators import MinValueValidator, URLValidator 
 #TODO Min-Value-Validator
 
 # class UrlField(DefaultUrlField):
@@ -24,6 +24,8 @@ class Book(models.Model): #Gives us special functionality to talk to the ORM.
     # number_of_pages = models.IntegerField()
     # website = URLField()
     website = models.TextField(validators=[URLValidator()])
+    pages = models.IntegerField(validators=[MinValueValidator(10)], null=True)
+    
 
     def __str__(self):
         return f'{self.title} by {self.author}'
@@ -31,4 +33,4 @@ class Book(models.Model): #Gives us special functionality to talk to the ORM.
 class BookForm(ModelForm): #This method is new. PM
     class Meta:
         model = Book #We want it tied to the model Book.
-        fields = ['title', 'author', 'summary', 'website']
+        fields = ['title', 'author', 'summary', 'website', 'pages']
