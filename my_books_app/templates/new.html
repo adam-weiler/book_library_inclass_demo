@@ -1,0 +1,26 @@
+<!-- This file is new. -->
+
+<h1>Adding a new Book:</h1>
+
+<form action ="/books/create" method="post">
+    <!-- <input type="hidden" name="csrfmiddlewatertoken" /> -->
+
+    {% csrf_token %}
+
+    <div>
+        <label for="">Title:</label>
+        <input id="book" type="text" name="title" />
+    </div>
+    <div>
+        <label for="">Author:</label>
+        <input id="book" type="text" name="author" />
+    </div>
+    <div>
+        <label for="">Summary:</label>
+        <textarea id="book" type="text" name="summary" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Save New Book">
+        <input type="reset" name="reset" value="Reset">
+    </div>
+</form>

@@ -1,0 +1,27 @@
+<!-- This file is new. -->
+
+<h1>Editing an existing Book {{ book.pk }}:</h1>
+
+<form action ="/books/{{ book.pk }}/update" method="post">
+
+    {% csrf_token %}
+
+    <!-- <input type="hidden" name="pk" value="{{ airplane.pk }}"> --> <!--This way isn't so clean. -->
+
+    <div>
+        <label for="">Title:</label>
+        <input id="book" type="text" name="title" value="{{ book.title }}" />
+    </div>
+    <div>
+        <label for="">Author:</label>
+        <input id="book" type="text" name="author" value="{{ book.author }}" />
+    </div>
+    <div>
+        <label for="">Summary:</label>
+        <textarea id="book" type="text" name="summary" cols="30" rows="10">{{ book.summary }}</textarea>
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Save New Book">
+        <input type="reset" name="reset" value="Reset">
+    </div>
+</form>

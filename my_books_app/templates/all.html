@@ -8,7 +8,13 @@
     <h1>A List of Books:</h1>
     <ul>
     {% for book in our_books %}
-        <li><a href="/books/{{ book.pk }}" >{{ book.title }} by {{ book.author }} : {{ book.summary }} -- {{ book.id }} {{ book.pk }}</a></li>
+        <li><a href="/books/{{ book.pk }}" >{{ book.title }} by {{ book.author }} : {{ book.summary }} -- {{ book.id }} {{ book.pk }}</a><br/>
+        
+        ( <a href="{{ book.pk }}/edit" >Edit</a> )
+        ( <a href="{{ book.pk }}/delete" >Delete</a> )
+
+        
+        </li>
 
     {% endfor %}
     </ul>

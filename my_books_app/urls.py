@@ -21,5 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('books/', views.all),
-    path('books/<int:id>', views.show)
+    # path('books/<str:something>', views.something), #This line is problematic. It would run before new, create.
+    path('books/new', views.new), #This line is new.
+    path('books/create', views.create), #This line is new.
+    path('books/<int:id>/update', views.update), #This line is new.
+    path('books/<int:id>', views.show),
+    path('books/<int:id>/edit', views.edit), #This line is new.
+    path('books/<int:id>/delete', views.delete), #This line is new.
 ]
