@@ -10,12 +10,17 @@
     {% for book in our_books %}
         <li><a href="/books/{{ book.pk }}" >{{ book.title }} by {{ book.author }} : {{ book.summary }} -- {{ book.id }} {{ book.pk }}</a><br/>
         
-        ( <a href="{{ book.pk }}/edit" >Edit</a> )
-        ( <a href="{{ book.pk }}/delete" >Delete</a> )
+        ( <a href="{{ book.pk }}/edit" >Edit</a> ) <!-- This button is new. AM -->
+        ( <a href="{{ book.pk }}/delete" >Delete</a> ) <!-- This button is new. AM -->
 
         
         </li>
 
     {% endfor %}
     </ul>
+
+    <div>
+        <a href="/books/new" />Add a new Book</div>
+    </div>
+
 {% endblock %}

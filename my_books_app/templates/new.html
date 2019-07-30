@@ -1,4 +1,4 @@
-<!-- This file is new. -->
+<!-- This file is new. AM -->
 
 <h1>Adding a new Book:</h1>
 
@@ -7,7 +7,7 @@
 
     {% csrf_token %}
 
-    <div>
+    <!-- <div>
         <label for="">Title:</label>
         <input id="book" type="text" name="title" />
     </div>
@@ -18,7 +18,12 @@
     <div>
         <label for="">Summary:</label>
         <textarea id="book" type="text" name="summary" cols="30" rows="10"></textarea>
-    </div>
+    </div> --> <!-- These divs were done in the AM. -->
+
+    <!-- {{ form }} --> <!-- This form was done in the PM. Or.. -->
+
+    {{ form.as_p }} <!-- ..Alternatively, this form was done in the PM. -->
+
     <div>
         <input type="submit" name="submit" value="Save New Book">
         <input type="reset" name="reset" value="Reset">

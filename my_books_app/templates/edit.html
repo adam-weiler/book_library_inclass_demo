@@ -1,14 +1,15 @@
-<!-- This file is new. -->
+<!-- This file is new. AM -->
 
 <h1>Editing an existing Book {{ book.pk }}:</h1>
 
 <form action ="/books/{{ book.pk }}/update" method="post">
 
+    
     {% csrf_token %}
 
     <!-- <input type="hidden" name="pk" value="{{ airplane.pk }}"> --> <!--This way isn't so clean. -->
 
-    <div>
+    <!-- <div>
         <label for="">Title:</label>
         <input id="book" type="text" name="title" value="{{ book.title }}" />
     </div>
@@ -19,7 +20,12 @@
     <div>
         <label for="">Summary:</label>
         <textarea id="book" type="text" name="summary" cols="30" rows="10">{{ book.summary }}</textarea>
-    </div>
+    </div> -->  <!-- These divs were done in the AM. -->
+
+    <!-- {{ form }} --> <!-- This form was done in the PM. Or.. -->
+
+    {{ form.as_p }} <!-- ..Alternatively, this form was done in the PM. -->
+
     <div>
         <input type="submit" name="submit" value="Save New Book">
         <input type="reset" name="reset" value="Reset">

@@ -1,6 +1,15 @@
-<form action ="" method="">
-    <!-- <input type="hidden" name="_method" value="PATCH"> --> <!--This might happen behind the scenes.-->
+<!-- This file is new. PM -->
 
+<h1>{{ message }}</h1>
 
+<form action ="{{ action }}" method="post">
 
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <div>
+        <input type="submit" name="submit" value="Save New Book">
+        <input type="reset" name="reset" value="Reset">
+    </div>
 </form>
